@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160917124406) do
+ActiveRecord::Schema.define(version: 20160917131557) do
 
   create_table "products", force: :cascade do |t|
     t.string   "title"
@@ -46,11 +46,11 @@ ActiveRecord::Schema.define(version: 20160917124406) do
 
   create_table "shopping_cart_credit_cards", force: :cascade do |t|
     t.string   "number"
-    t.string   "expiration_mounth"
+    t.string   "expiration_month"
     t.string   "expiration_year"
     t.string   "code"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
   end
 
   create_table "shopping_cart_deliveries", force: :cascade do |t|
@@ -83,11 +83,13 @@ ActiveRecord::Schema.define(version: 20160917124406) do
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
     t.integer  "copupon_id"
+    t.integer  "user_id"
     t.index ["billing_address_id"], name: "index_shopping_cart_orders_on_billing_address_id"
     t.index ["copupon_id"], name: "index_shopping_cart_orders_on_copupon_id"
     t.index ["credit_card_id"], name: "index_shopping_cart_orders_on_credit_card_id"
     t.index ["delivery_id"], name: "index_shopping_cart_orders_on_delivery_id"
     t.index ["shipping_address_id"], name: "index_shopping_cart_orders_on_shipping_address_id"
+    t.index ["user_id"], name: "index_shopping_cart_orders_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

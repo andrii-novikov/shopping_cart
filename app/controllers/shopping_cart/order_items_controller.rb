@@ -1,14 +1,14 @@
 require_dependency "shopping_cart/application_controller"
 
 module ShoppingCart
-  class OrdersItemsController < ApplicationController
+  class OrderItemsController < ApplicationController
     load_and_authorize_resource
     before_action :set_order
     before_action :find_item, only: [:update, :destroy]
     respond_to :json
 
     def create
-      @order_item = @order.orders_items.create(create_params)
+      @order_item = @order.order_items.create(create_params)
     end
 
     def update
@@ -32,7 +32,7 @@ module ShoppingCart
     end
 
     def find_item
-      @order_item = @order.orders_items.find_by_id(params[:id])
+      @order_item = @order.order_items.find_by_id(params[:id])
     end
   end
 end

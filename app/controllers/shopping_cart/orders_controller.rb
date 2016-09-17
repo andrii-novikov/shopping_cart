@@ -2,7 +2,7 @@ require_dependency "shopping_cart/application_controller"
 
 module ShoppingCart
   class OrdersController < ApplicationController
-    load_and_authorize_resource
+    # load_and_authorize_resource
 
     def index
       @orders = current_user.orders
@@ -12,4 +12,4 @@ module ShoppingCart
       @order = Order.find_by_id(params[:id])
     end
   end
-end
+  end

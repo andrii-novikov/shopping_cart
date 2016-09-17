@@ -10,4 +10,12 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require_tree .
+//= require jquery
+//= require jquery_ujs
+//= require bootstrap-sprockets
+//= require shopping_cart/cart
+//= require shopping_cart/helper
+//= require shopping_cart/book
+//= require shopping_cart/checkout
+//= require shopping_cart/app
+

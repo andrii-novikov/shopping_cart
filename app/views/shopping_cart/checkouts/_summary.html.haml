@@ -1,5 +1,5 @@
 %table.table.table-striped.table-bordered.text-center
-  -current_order.orders_items.each do |item|
+  -current_order.order_items.each do |item|
     =render 'cart_row', item: item
 
   -if current_order.coupon.present?

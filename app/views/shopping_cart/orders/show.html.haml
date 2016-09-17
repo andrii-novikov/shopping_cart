@@ -10,7 +10,7 @@
         %th= t '.th.quantity'
         %th= t '.th.total'
     %tbody
-      =render partial: 'orders/orders_item', collection: @order.orders_items
+      =render partial: 'orders/orders_item', collection: @order.order_items
       %tr
         %td.text-right{colspan:4}
           %b= t '.subtotal'

@@ -1,23 +1,23 @@
 module ShoppingCart
   class Order < ApplicationRecord
-    # belongs_to :user
+    belongs_to :user
     belongs_to :delivery
     belongs_to :coupon
-    has_many :orders_items, -> { order(created_at: :desc) }, dependent: :destroy
+    has_many :order_items, -> { order(created_at: :desc) }, dependent: :destroy
 
-    # validates :user, presence: true, unless: :in_progress?
+    validates :user, presence: true, unless: :in_progress?
     validates :billing_address_id, presence: true, unless: :in_progress?
     validates :shipping_address_id, presence: true, if: :validate_shipping?
     validates :delivery, presence: true, unless: :in_progress?
     validates :credit_card_id, presence: true, unless: :in_progress?
-    validates :orders_items, presence: true, unless: :in_progress?
+    validates :order_items, presence: true, unless: :in_progress?
 
     include ShoppingCart::Contactable
 
     DEFAULT_DISCOUNT_COEFFICIENT = 1
     TEMPORARY_LIVE_DURATION = 1.day
 
-    delegate :empty?, to: :orders_items
+    delegate :empty?, to: :order_items
     # delegate :billing_address, to: :user, prefix: true
     # delegate :shipping_address, to: :user, prefix: true
     # delegate :credit_card, to: :user, prefix: true
@@ -64,7 +64,7 @@ module ShoppingCart
     end
 
     def amount
-      orders_items.sum(&:total)
+      order_items.sum(&:total)
     end
 
     def subtotal
@@ -85,7 +85,7 @@ module ShoppingCart
     end
 
     def union_with(other)
-      other.orders_items.each do |item|
+      other.order_items.each do |item|
         item.update_attribute(:order, self) unless contains(item.book)
       end
       other.reload.destroy
@@ -93,7 +93,7 @@ module ShoppingCart
     end
 
     def contains(book)
-      !!orders_items.find_by_book_id(book.id)
+      !!order_items.find_by_book_id(book.id)
     end
 
     private

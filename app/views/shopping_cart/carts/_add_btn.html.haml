@@ -1,0 +1,9 @@
+-if in_cart book
+  =link_to t('shopping_cart.carts.add_btn.text'), cart_path, class: 'btn btn-primary to-cart'
+-else
+  = form_for order_item, remote: true, format: :json, html: {class:'add-to-cart form form-inline'} do |f|
+    .input-group
+      =f.number_field :count, value:1, min:1, max:20, class:'form-control'
+      .input-group-btn
+        =f.hidden_field :book_id, value: book.id
+        =f.button tag('span', class:'glyphicon glyphicon-shopping-cart'), class: 'btn btn-primary'

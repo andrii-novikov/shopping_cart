@@ -11,3 +11,4 @@
   -@products.each do |p|
     %li
       = p.title
+      = render 'shopping_cart/carts/add_btn', product: p

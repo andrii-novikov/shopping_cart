@@ -24,14 +24,23 @@ module ShoppingCart
     end
 
     def billing_address
+      unless order.user.try(:billing_address)
+        return order.billing_address || order.build_billing_address
+      end
       order.billing_address_id.nil? ? order.user.billing_address.dup : order.billing_address
     end
 
     def shipping_address
+      unless order.user.try(:shipping_address)
+        return order.shipping_address || order.build_shipping_address
+      end
       order.shipping_address_id.nil? ? order.user.shipping_address.dup : order.shipping_address
     end
 
     def credit_card
+      unless order.user.try(:credit_card)
+        return order.credit_card || order.build_credit_card
+      end
       order.credit_card_id.nil? ? order.user.credit_card.dup : order.credit_card
     end
 

@@ -82,10 +82,10 @@ ActiveRecord::Schema.define(version: 20160917131557) do
     t.boolean  "use_billing_address"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
-    t.integer  "copupon_id"
+    t.integer  "coupon_id"
     t.integer  "user_id"
     t.index ["billing_address_id"], name: "index_shopping_cart_orders_on_billing_address_id"
-    t.index ["copupon_id"], name: "index_shopping_cart_orders_on_copupon_id"
+    t.index ["coupon_id"], name: "index_shopping_cart_orders_on_coupon_id"
     t.index ["credit_card_id"], name: "index_shopping_cart_orders_on_credit_card_id"
     t.index ["delivery_id"], name: "index_shopping_cart_orders_on_delivery_id"
     t.index ["shipping_address_id"], name: "index_shopping_cart_orders_on_shipping_address_id"

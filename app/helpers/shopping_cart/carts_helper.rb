@@ -1,11 +1,11 @@
 module ShoppingCart
   module CartsHelper
-    def in_cart(book)
-      current_order.order_items.map(&:book).include? book
+    def in_cart book
+      current_order.order_items.map(&:product).include? book
     end
 
     def order_item
-      OrdersItem.new
+      ShoppingCart::OrderItem.new
     end
 
     def tab_header(name, title, enable = true, active = false)

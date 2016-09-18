@@ -2,7 +2,7 @@ require_dependency "shopping_cart/application_controller"
 
 module ShoppingCart
   class OrderItemsController < ApplicationController
-    load_and_authorize_resource
+    # load_and_authorize_resource
     before_action :set_order
     before_action :find_item, only: [:update, :destroy]
     respond_to :json
@@ -22,7 +22,7 @@ module ShoppingCart
     private
 
     def create_params
-      params.require(:orders_item).permit(:count, :book_id)
+      params.require(:order_item).permit(:count, :product_id)
     end
 
     alias_method :update_params, :create_params

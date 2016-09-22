@@ -3,7 +3,7 @@
     %h2= t('.title.confirm')
   .row
     .col-md-3
-      %h3= t('carts.checkout_address.shipping')
+      %h3= t('shopping_cart.carts.checkout_address.shipping')
       =button_tag(icon('edit'),class:'btn btn-link tab-link',id:'address')
       .info
         -if @form.use_billing_address
@@ -11,17 +11,17 @@
         -else
           =print_address(@form.shipping_address.decorate)
     .col-md-3
-      %h3= t('carts.checkout_address.billing')
+      %h3= t('shopping_cart.carts.checkout_address.billing')
       =button_tag(icon('edit'),class:'btn btn-link tab-link', id:'address')
       .info
         =print_address(@form.billing_address.decorate)
     .col-md-3
-      %h3= t('carts.checkout.tab-delivery')
+      %h3= t('shopping_cart.carts.checkout.tab_delivery')
       =button_tag(icon('edit'),class:'btn btn-link tab-link', id:'delivery')
       .info
         =@form.delivery.name
     .col-md-3
-      %h3= t('carts.checkout.tab-payment')
+      %h3= t('shopping_cart.carts.checkout.tab_payment')
       =button_tag(icon('edit'),class:'btn btn-link tab-link', id:'payment')
       .info
         =print_credit_card(@form.credit_card)

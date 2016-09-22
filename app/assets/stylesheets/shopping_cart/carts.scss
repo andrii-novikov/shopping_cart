@@ -9,9 +9,15 @@
 
 }
 
-.orders_item {
+.shopping_cart_order_item {
   .count {
     width: 5em;
+  }
+  .title {
+    min-width: 15em;
+  }
+  .actions {
+    width: 6em;
   }
 }
 

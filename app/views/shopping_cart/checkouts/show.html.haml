@@ -1,10 +1,11 @@
-%h1 Checkout
+.text-center
+  %h1 Checkout
 .col-sm-8.checkout
   %ul.nav.nav-tabs{role:"tablist"}
-    =tab_header 'address', t('.tab-address'), true, true
-    =tab_header 'delivery', t('.tab-delivery'), false
-    =tab_header 'payment', t('.tab-payment'), false
-    =tab_header 'confirm', t('.tab-confirm'), false
+    =tab_header 'address', t('.tab_address'), true, true
+    =tab_header 'delivery', t('.tab_delivery'), false
+    =tab_header 'payment', t('.tab_payment'), false
+    =tab_header 'confirm', t('.tab_confirm'), false
   %div.tab-content
     %div.tab-pane.fade-in.active{role:"tabpanel", id:"address"}
       = render 'address'

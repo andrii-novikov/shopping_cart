@@ -9,7 +9,7 @@ module ShoppingCart
         content_tag(:div, address.full_name) +
             content_tag(:div, address.street) +
             content_tag(:div, address.city) +
-            content_tag(:div, address.country) +
+            content_tag(:div, address.country.title) +
             content_tag(:div, "Phone: #{address.phone}")
       end
     end

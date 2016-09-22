@@ -2,11 +2,11 @@ en:
   shopping_cart:
     checkouts:
       show:
-        tab-address: 'Address'
-        tab-delivery: 'Delivery'
-        tab-payment: 'Payment'
-        tab-confirm: 'Confirm'
-        tab-complete: 'Complete'
+        tab_address: 'Address'
+        tab_delivery: 'Delivery'
+        tab_payment: 'Payment'
+        tab_confirm: 'Confirm'
+        tab_complete: 'Complete'
         summary: 'Order summary'
       address:
         billing: 'Billing Address'

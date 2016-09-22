@@ -3,7 +3,7 @@
     %td
       -#=link_to [main_app, item.product] do
       -#  =image_tag item.product.image, height: '80px', class:'img-thumbnail'
-    %td
+    %td.title
       =link_to [main_app, item.product] do
         =item.product.title
     %td
@@ -13,7 +13,7 @@
       =f.hidden_field :product_id, value: item.product.id
     %td.total
       $#{item.total}
-    %td
+    %td.actions
       =f.button icon('refresh'), class: 'btn btn-primary'
       =link_to icon('remove'),
                item,

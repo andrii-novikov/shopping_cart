@@ -1,0 +1,29 @@
+!!!
+%html
+  %head
+    %title Dummy
+    = csrf_meta_tags
+
+    = stylesheet_link_tag    'application', media: 'all'
+    = javascript_include_tag 'application'
+
+  %body
+    .container
+      .row
+        %nav.navbar.navbar-default.navbar-fixed-top
+          .container
+            .navbar-header
+              %ul.nav.navbar-nav
+                %li
+                  =link_to "home", main_app.root_path
+                %li.cart-link
+                  =render 'layouts/shopping_cart/cart_text'
+                %li
+                  =render 'layouts/shopping_cart/orders_text'
+                -if user_signed_in?
+                  %li= link_to "Log Out", main_app.destroy_user_session_path, method: :delete
+                -else
+                  %li= link_to 'Sign In', main_app.new_user_session_path
+                  %li= link_to 'Sign Up', main_app.new_user_registration_path
+      .row
+        = yield

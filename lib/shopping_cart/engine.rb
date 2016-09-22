@@ -2,6 +2,10 @@ module ShoppingCart
   class Engine < ::Rails::Engine
     isolate_namespace ShoppingCart
 
+    config.before_initialize do
+      config.i18n.load_path += Dir["#{config.root}/config/locales/**/*.yml"]
+    end
+
     initializer 'shopping_cart' do
       # ActiveSupport.on_load :active_record do
       #   ActiveRecord::Base.include ShoppingCart::ModelMethods

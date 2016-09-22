@@ -1,19 +1,20 @@
 en:
-  orders:
-    show:
-      title: 'Order #%{id}'
-      th:
+  shopping_cart:
+    orders:
+      show:
+        title: 'Order #%{id}'
+        th:
+          book: 'Book'
+          price: 'Price'
+          quantity: 'Quantity'
+          total: 'Total'
+        subtotal: 'Subtotal'
+        shipping: 'Shipping'
+        total: 'Total'
+      index:
+        title: 'Orders'
+        current_order: 'Current order'
         book: 'Book'
         price: 'Price'
         quantity: 'Quantity'
         total: 'Total'
-      subtotal: 'Subtotal'
-      shipping: 'Shipping'
-      total: 'Total'
-    index:
-      title: 'Orders'
-      current_order: 'Current order'
-      book: 'Book'
-      price: 'Price'
-      quantity: 'Quantity'
-      total: 'Total'

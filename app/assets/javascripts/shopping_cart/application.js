@@ -15,7 +15,6 @@
 //= require bootstrap-sprockets
 //= require shopping_cart/cart
 //= require shopping_cart/helper
-//= require shopping_cart/book
 //= require shopping_cart/checkout
 //= require shopping_cart/app
 

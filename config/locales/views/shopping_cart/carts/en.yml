@@ -1,4 +1,7 @@
 en:
+  carts:
+    add_btn:
+      text: 'Go to the cart'
   shopping_cart:
     carts:
       show:
@@ -41,4 +44,4 @@ en:
         total: 'Total:'
         delivery: 'Delivery cost'
       cart_row:
-        confirm: "Are you sure you wish to delete the product '%{book}' from your cart?"
+        confirm: "Are you sure you wish to delete the product '%{product}' from your cart?"

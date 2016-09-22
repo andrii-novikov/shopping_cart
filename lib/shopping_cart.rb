@@ -8,6 +8,7 @@ require "haml"
 require "drape"
 require "i18n"
 require "cancancan"
+require "jbuilder"
 
 module ShoppingCart
   # Your code goes here...

@@ -4,6 +4,6 @@
   -else
     =form_for current_order.build_coupon, method: :patch do |f|
       .input-group
-        =f.text_field :name, class:'form-control', placeholder: t('coupons.form.placeholder')
+        =f.text_field :name, class:'form-control', placeholder: t('.placeholder')
         .input-group-btn
           =f.button icon('ok'), class: 'btn btn-primary'

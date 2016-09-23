@@ -1,7 +1,7 @@
 module ShoppingCart
   class OrderItem < ApplicationRecord
     belongs_to :order
-    belongs_to :product
+    belongs_to :product, class_name: ShoppingCart.product_class
 
     validates :count, presence: true, format: { with: /\d{1,2}/ }
     validate :validate_cost, on: create

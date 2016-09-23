@@ -1,9 +1,8 @@
 en:
-  shopping_cart:
-    activerecord:
-      errors:
-        models:
-          address:
+  activerecord:
+    errors:
+      models:
+        shopping_cart/address:
             attributes:
               phone:
                 invalid: 'must have next format: +380991234567'

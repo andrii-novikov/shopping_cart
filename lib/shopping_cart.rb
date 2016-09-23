@@ -23,5 +23,9 @@ module ShoppingCart
   @@user_class = 'User'
 
   mattr_accessor :order_has_coupon
-  @@order_has_coupon = false
+  @@order_has_coupon = true
+
+  def self.setup
+    yield self
+  end
 end

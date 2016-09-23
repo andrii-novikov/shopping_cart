@@ -18,4 +18,10 @@ module ShoppingCart
 
   mattr_accessor :order_item_class
   @@order_item_class = 'ShoppingCart::OrderItem'
+
+  mattr_accessor :user_class
+  @@user_class = 'User'
+
+  mattr_accessor :order_has_coupon
+  @@order_has_coupon = false
 end

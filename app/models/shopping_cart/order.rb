@@ -1,8 +1,7 @@
 module ShoppingCart
   class Order < ApplicationRecord
-    belongs_to :user
+    belongs_to :user, class_name: ShoppingCart.user_class
     belongs_to :delivery
-    belongs_to :coupon
     has_many :order_items, -> { order(created_at: :desc) }, dependent: :destroy
 
     validates :user, presence: true, unless: :in_progress?
@@ -14,14 +13,13 @@ module ShoppingCart
 
     include ShoppingCart::Contactable
 
-    DEFAULT_DISCOUNT_COEFFICIENT = 1
+    if ShoppingCart.order_has_coupon
+      include ShoppingCart::Discountable
+    end
+
     TEMPORARY_LIVE_DURATION = 1.day
 
     delegate :empty?, to: :order_items
-    # delegate :billing_address, to: :user, prefix: true
-    # delegate :shipping_address, to: :user, prefix: true
-    # delegate :credit_card, to: :user, prefix: true
-
     before_save :set_total
 
     scope :temporary, -> {where('user_id is NULL AND created_at < ?', TEMPORARY_LIVE_DURATION.ago)}
@@ -56,7 +54,7 @@ module ShoppingCart
     end
 
     def mark_complete
-      update(completed_date: Date.today)
+      update(completed_at: Date.today)
     end
 
     def set_total
@@ -68,16 +66,8 @@ module ShoppingCart
     end
 
     def subtotal
-      amount * discount
-    end
-
-    def apply_coupon(coupon)
-      update(coupon: coupon) if coupon.is_a? Coupon
-    end
-
-    def discount
-      return coupon.discount_coefficient if coupon.present?
-      DEFAULT_DISCOUNT_COEFFICIENT
+      return amount * discount if ShoppingCart.order_has_coupon
+      amount
     end
 
     def total

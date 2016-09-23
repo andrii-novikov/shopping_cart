@@ -16,7 +16,8 @@
           =render 'shopping_cart/carts/cart_row', item:item
         %tr
           %td.text-right{colspan:4}
-            =render 'shopping_cart/coupons/form', coupon: @order.coupon
+            -if ShoppingCart.order_has_coupon
+              =render 'shopping_cart/coupons/form', coupon: @order.coupon
           %td{colspan:2}
             %b.cart-total
               $#{@order.total}

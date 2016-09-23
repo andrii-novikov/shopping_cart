@@ -2,7 +2,7 @@
   -current_order.order_items.each do |item|
     =render 'cart_row', item: item
 
-  -if current_order.coupon.present?
+  -if ShoppingCart.order_has_coupon && current_order.coupon.present?
     %tr
       %td.text-right{colspan:2}
         %b= t '.discount'

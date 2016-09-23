@@ -25,19 +25,19 @@ module ShoppingCart
 
     def billing_address
       order.billing_address_id.nil? && user_has_address? ?
-          order.user.billing_address.dup :
+          order.copy_field(:billing_address) :
           order.billing_address
     end
 
     def shipping_address
-      user_has_address? ?
-          order.user.shipping_address.dup :
+      order.shipping_address_id.nil? && user_has_address? ?
+          order.copy_field(:shipping_address) :
           order.shipping_address
     end
 
     def credit_card
       order.credit_card_id.nil? && user_has_credit? ?
-          order.user.credit_card.dup :
+          order.copy_field(:credit_card) :
           order.credit_card
     end
 

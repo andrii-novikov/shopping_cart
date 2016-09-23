@@ -23,5 +23,17 @@ HTML
 HTML
       result.html_safe
     end
+
+    def add_to_cart_btn(product, tpl = 'shopping_cart/carts/add_btn')
+      render tpl, product: product
+    end
+
+    def link_to_cart
+      render 'layouts/shopping_cart/cart_text'
+    end
+
+    def link_to_orders
+      render 'layouts/shopping_cart/orders_text'
+    end
   end
 end

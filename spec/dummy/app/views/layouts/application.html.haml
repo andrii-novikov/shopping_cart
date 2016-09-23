@@ -17,9 +17,9 @@
                 %li
                   =link_to "home", main_app.root_path
                 %li.cart-link
-                  =render 'layouts/shopping_cart/cart_text'
+                  =link_to_cart
                 %li
-                  =render 'layouts/shopping_cart/orders_text'
+                  =link_to_orders
                 -if user_signed_in?
                   %li= link_to "Log Out", main_app.destroy_user_session_path, method: :delete
                 -else

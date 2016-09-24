@@ -13,7 +13,7 @@ module ShoppingCart
       def has_orders
         class_eval do
           has_many :orders, class_name: 'ShoppingCart::Order'
-          include ShoppingCart::Contactable
+          include ShoppingCart::Contactable if ShoppingCart.contactable_user
 
           def order_in_progress
             return orders.in_progress.last unless orders.in_progress.empty?

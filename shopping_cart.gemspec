@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.version     = ShoppingCart::VERSION
   s.authors     = ["Andrew Novikov"]
   s.email       = ["andruha2921@gmail.com"]
-  s.homepage    = "vk.com/novikov.andrey"
+  s.homepage    = "http://vk.com/novikov.andrey"
   s.summary     = "Summary of ShoppingCart."
   s.description = "Description of ShoppingCart."
   s.license     = "MIT"

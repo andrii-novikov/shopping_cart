@@ -22,8 +22,14 @@ module ShoppingCart
   mattr_accessor :user_class
   @@user_class = 'User'
 
+  mattr_accessor :user_table
+  @@user_class = :users
+
   mattr_accessor :order_has_coupon
   @@order_has_coupon = true
+
+  mattr_accessor :contactable_user
+  @@contactable_user = true
 
   def self.setup
     yield self

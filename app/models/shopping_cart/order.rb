@@ -76,14 +76,14 @@ module ShoppingCart
 
     def union_with(other)
       other.order_items.each do |item|
-        item.update_attribute(:order, self) unless contains(item.book)
+        item.update_attribute(:order, self) unless contains(item.product)
       end
       other.reload.destroy
       self
     end
 
-    def contains(book)
-      !!order_items.find_by_book_id(book.id)
+    def contains(product)
+      !!order_items.find_by_product_id(product.id)
     end
 
     private

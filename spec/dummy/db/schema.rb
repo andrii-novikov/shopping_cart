@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160923104359) do
+ActiveRecord::Schema.define(version: 20160923080418) do
 
   create_table "products", force: :cascade do |t|
     t.string   "title"
@@ -80,11 +80,11 @@ ActiveRecord::Schema.define(version: 20160923104359) do
     t.integer  "shipping_address_id"
     t.integer  "delivery_id"
     t.integer  "credit_card_id"
+    t.integer  "user_id"
     t.boolean  "use_billing_address"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
     t.integer  "coupon_id"
-    t.integer  "user_id"
     t.index ["billing_address_id"], name: "index_shopping_cart_orders_on_billing_address_id"
     t.index ["coupon_id"], name: "index_shopping_cart_orders_on_coupon_id"
     t.index ["credit_card_id"], name: "index_shopping_cart_orders_on_credit_card_id"

@@ -14,6 +14,7 @@ require 'jbuilder'
 require 'shoulda-matchers'
 require 'database_cleaner'
 require 'ffaker'
+require 'rails-controller-testing'
 
 module ShoppingCart
   mattr_accessor :product_class

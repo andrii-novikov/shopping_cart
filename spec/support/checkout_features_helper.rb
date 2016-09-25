@@ -22,25 +22,25 @@ module ShoppingCart
     end
 
     def fill_confirm_step
-      [I18n.t('carts.checkout_confirm.ship_to_billing'),
+      [I18n.t('shopping_cart.carts.checkout_confirm.ship_to_billing'),
        address_attributes[:firstname],
        address_attributes[:phone],
        Delivery.first.name].each do |expectation|
         expect(page).to have_content expectation
       end
-      click_on I18n.t('carts.checkout_confirm.btn_text.comfirm')
+      click_on I18n.t('shopping_cart.carts.checkout_confirm.btn_text.comfirm')
       sleep 1
-      expect(page.current_path).to eq orders_path
+      expect(page.current_path).to eq shopping_cart.orders_path
     end
 
     def checkout_continue
-      click_on I18n.t('carts.checkout_continue_btn.text')
+      click_on I18n.t('shopping_cart.carts.checkout_continue_btn.text')
     end
 
     def expect_tab(tab)
       sleep 1
       expect(find('.nav-tabs .active'))
-        .to have_content I18n.t("carts.checkout.tab-#{tab}")
+        .to have_content I18n.t("shopping_cart.carts.checkout.tab_#{tab}")
     end
   end
 end

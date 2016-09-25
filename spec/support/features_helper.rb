@@ -4,24 +4,24 @@ module ShoppingCart
       visit new_user_session_path
       fill_in 'Email', with: user.email
       fill_in 'Password', with: user.password
-      click_on 'Sign in'
+      click_on 'Log in'
     end
 
-    def add_book_to_cart(book)
-      visit(book_path(book))
+    def add_product_to_cart(product)
+      visit(product_path(product))
       click_add_to_cart
     end
 
     def click_add_to_cart
-      within '#new_orders_item' do
+      within '#new_order_item' do
         find('[type=submit]').click
       end
     end
 
-    def visit_cart_with(book)
-      add_book_to_cart(book)
+    def visit_cart_with(product)
+      add_product_to_cart(product)
       sleep 1
-      visit cart_path
+      visit shopping_cart.cart_path
     end
   end
 end

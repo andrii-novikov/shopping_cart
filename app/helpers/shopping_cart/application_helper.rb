@@ -24,5 +24,10 @@ module ShoppingCart
       field = field.join(' ') if field.is_a? Array
       content_tag(:span,nil,class:"text-danger #{field}")
     end
+
+    def shopping_cart_errors
+      render('shopping_cart/shared/notice', message: notice) if notice.present?
+      render('shopping_cart/shared/alert', message: flash[:alert]) if flash[:alert].present?
+    end
   end
 end

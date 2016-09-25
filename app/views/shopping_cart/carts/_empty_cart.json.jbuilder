@@ -1,2 +1,2 @@
-json.cart_content(t 'carts.cart_content.empty')
+json.cart_content(t 'shopping_cart.carts.cart_content.empty')
 

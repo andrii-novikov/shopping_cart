@@ -1,6 +1,7 @@
 .text-center
   %h1 Checkout
 .col-sm-8.checkout
+  =shopping_cart_errors
   %ul.nav.nav-tabs{role:"tablist"}
     =tab_header 'address', t('.tab_address'), true, true
     =tab_header 'delivery', t('.tab_delivery'), false

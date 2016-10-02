@@ -11,4 +11,6 @@ ShoppingCart.setup do |config|
   config.order_has_coupon = true
   #If true, at the begin billing, shipping address and credit card will be taken from user.
   config.contactable_user = true
+  #Name of method that return current user
+  config.current_user_method = :current_user
 end

@@ -1,7 +1,8 @@
 module ShoppingCart
   class OrdersController < ApplicationController
+    before_action :authenticate_user!
     def index
-      @orders = current_user.orders
+      @orders = send(ShoppingCart.current_user_method).orders
     end
 
     def show

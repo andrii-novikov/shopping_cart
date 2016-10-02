@@ -8,22 +8,12 @@ end
 
 module ShoppingCart
   mattr_accessor :product_class
-  @@product_class = 'Product'
-
   mattr_accessor :order_item_class
-  @@order_item_class = 'ShoppingCart::OrderItem'
-
   mattr_accessor :user_class
-  @@user_class = 'User'
-
   mattr_accessor :user_table
-  @@user_class = :users
-
   mattr_accessor :order_has_coupon
-  @@order_has_coupon = true
-
   mattr_accessor :contactable_user
-  @@contactable_user = true
+  mattr_accessor :current_user_method
 
   def self.setup
     yield self

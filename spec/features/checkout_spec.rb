@@ -13,7 +13,7 @@ feature 'Checkout', checkout: true do
     click_on I18n.t('shopping_cart.carts.cart_content.make-order')
   end
 
-  scenario 'click Use billing address' do
+  scenario 'click Use billing address', :js do
     check 'checkout_form[use_billing_address]'
     expect(page).to have_css('.shipping-address', visible: false)
   end

@@ -13,7 +13,7 @@ feature 'Cart' do
     let(:product) { create(:product) }
 
     context 'unregistered user' do
-      scenario 'click on make order' do
+      scenario 'click on make order', js:true do
         visit_cart_with(product)
         click_on I18n.t('shopping_cart.carts.cart_content.make-order')
         expect(page).to have_current_path(new_user_session_path)
@@ -44,7 +44,7 @@ feature 'Cart' do
         # expect {find('[type=submit').click}.to change {find('.total').text}
         value = find('.total').text
         find('[type=submit]').click
-        sleep 1
+        wait_for_ajax
         expect(value).not_to eq find('.total').text
       end
     end
@@ -53,13 +53,13 @@ feature 'Cart' do
       before { visit_cart_with(product) }
       let(:coupon) { create(:coupon) }
 
-      scenario 'add broken coupon' do
+      scenario 'add broken coupon', :js do
         fill_in 'coupon[name]', with: 'sale'
         find('.coupon [name=button]').click
         expect(page).to have_content I18n.t('shopping_cart.coupons.apply.invalid_coupon')
       end
 
-      scenario 'add valid coupon' do
+      scenario 'add valid coupon', :js do
         fill_in 'coupon[name]', with: coupon.name
         find('.coupon [name=button]').click
         expect(page).to have_content I18n.t('shopping_cart.coupons.form.discount',

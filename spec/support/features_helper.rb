@@ -20,7 +20,7 @@ module ShoppingCart
 
     def visit_cart_with(product)
       add_product_to_cart(product)
-      sleep 1
+      wait_for_ajax
       visit shopping_cart.cart_path
     end
   end

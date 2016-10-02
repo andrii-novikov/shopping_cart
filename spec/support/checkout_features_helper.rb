@@ -29,6 +29,7 @@ module ShoppingCart
         expect(page).to have_content expectation
       end
       click_on I18n.t('shopping_cart.carts.checkout_confirm.btn_text.comfirm')
+      wait_for_ajax
       sleep 1
       expect(page.current_path).to eq shopping_cart.orders_path
     end
@@ -38,7 +39,7 @@ module ShoppingCart
     end
 
     def expect_tab(tab)
-      sleep 1
+      wait_for_ajax
       expect(find('.nav-tabs .active'))
         .to have_content I18n.t("shopping_cart.carts.checkout.tab_#{tab}")
     end

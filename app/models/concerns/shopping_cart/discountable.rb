@@ -4,7 +4,6 @@ module ShoppingCart
 
     included do
       belongs_to :coupon
-      p 'ajslkdjaslkjdalskdjlaskjdlaskjdlaksjdlkasjdlkasjdljaskj'
       DEFAULT_DISCOUNT_COEFFICIENT = 1
 
       def apply_coupon(coupon)

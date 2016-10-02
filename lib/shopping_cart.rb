@@ -1,20 +1,10 @@
 require 'shopping_cart/engine'
 require 'shopping_cart/controller_actions'
 require 'shopping_cart/model_actions'
-require 'jquery-rails'
-require 'haml'
-require 'bootstrap-sass'
-require 'devise'
-require 'aasm'
-require 'haml'
-require 'drape'
-require 'i18n'
-require 'cancancan'
-require 'jbuilder'
-require 'shoulda-matchers'
-require 'database_cleaner'
-require 'ffaker'
-require 'rails-controller-testing'
+
+Gem.loaded_specs['shopping_cart'].runtime_dependencies.each do |d|
+  require d.name
+end
 
 module ShoppingCart
   mattr_accessor :product_class

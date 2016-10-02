@@ -7,7 +7,6 @@ RSpec.describe ShoppingCart::OrdersController, type: :controller do
   let(:order) { create(:order, user: user) }
   before { allow(controller).to receive(:current_order).and_return(order) }
   before { allow(controller).to receive(:current_user).and_return(user) }
-  login_user
 
   describe 'GET #show' do
     subject { get :show, params: { id: order.id } }

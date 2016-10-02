@@ -6,6 +6,7 @@ PATH
       bootstrap-sass
       cancancan
       coffee-rails
+      devise
       drape
       haml
       jbuilder

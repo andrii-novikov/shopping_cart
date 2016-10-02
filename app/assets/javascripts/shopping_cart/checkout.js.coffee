@@ -8,7 +8,6 @@ window.Checkout =
       .on("ajax:complete", @onCheckoutUpdate.bind(this))
 
   onCheckoutUpdate: (e, data, status, xhr) ->
-    $.active = 1
     data = data.responseJSON
     Helper.hideErrors();
     return Helper.showErrors(data.errors) if data.errors

@@ -9,18 +9,23 @@ module ShoppingCart
     end
 
     def tab_header(name, title, enable = true, active = false)
-      result = <<HTML
-  <li role="presentation" class="#{active ? 'active' : ''}#{enable ? '' : 'disabled'}">
-    #{tab_href(title, name)}
-  </li>
-HTML
+      html_class = []
+      html_class << 'active' if active
+      html_class << 'disabled' unless enable
+      options = {
+          role: "presentation",
+          class: html_class.join(' ')
+      }
+      result = content_tag('li', tab_href(title, name), options)
       result.html_safe
     end
 
     def tab_href(content, name)
-      result = <<HTML
-      <a href="##{name}" aria-controls="#{name}" role="tab" data-toggle='tab' >#{content}</a>
-HTML
+      options = { href:"##{name}",
+                  'aria-controls': name,
+                  role: "tab",
+                  'data-toggle': 'tab' }
+      result = content_tag('a', content, options)
       result.html_safe
     end
 
@@ -34,6 +39,26 @@ HTML
 
     def link_to_orders
       render 'layouts/shopping_cart/orders_text'
+    end
+
+    def tab_content(name, active = false, &block)
+      result = block.present? ? capture(&block) : ''
+      html_class = "tab-pane fade"
+      html_class += '-in active' if active
+      options = { id: name,
+                  role: 'tabpanel',
+                  class: html_class }
+      result = content_tag('div', result, options)
+      result.html_safe
+    end
+
+    def checkout_form(step, &block)
+      result = form_for @form, url: checkout_path, remote:true, html: {method: :put, class:'checkout_form'} do |f|
+        concat(f.hidden_field 'step', value: step)
+        concat(capture(f, &block))
+        concat(render 'continue_btn', f:f)
+      end
+      result.html_safe
     end
   end
 end

@@ -8,14 +8,13 @@
     =tab_header 'payment', t('.tab_payment'), false
     =tab_header 'confirm', t('.tab_confirm'), false
   %div.tab-content
-    %div.tab-pane.fade-in.active{role:"tabpanel", id:"address"}
-      = render 'address'
-    %div.tab-pane.fade{role:"tabpanel", id:"delivery"}
+    =tab_content('address', true) do
+      =render 'address'
+    =tab_content 'delivery' do
       = render 'delivery'
-    %div.tab-pane.fade{role:"tabpanel", id:"payment"}
+    =tab_content 'payment' do
       = render 'payment'
-    %div.tab-pane.fade{role:"tabpanel", id:"confirm"}
-
+    =tab_content 'confirm'
 .col-sm-4
   %h3.text-center= t('.summary')
   .order-summary

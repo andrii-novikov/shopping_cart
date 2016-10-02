@@ -1,9 +1,5 @@
-require_dependency "shopping_cart/application_controller"
-
 module ShoppingCart
   class CouponsController < ApplicationController
-    # load_and_authorize_resource
-
     def apply
       @coupon = Coupon.find_by_name(coupon_params[:name])
       current_order.apply_coupon(@coupon)

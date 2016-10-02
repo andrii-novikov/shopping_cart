@@ -1,8 +1,5 @@
-require_dependency "shopping_cart/application_controller"
-
 module ShoppingCart
   class OrderItemsController < ApplicationController
-    # load_and_authorize_resource
     before_action :set_order
     before_action :find_item, only: [:update, :destroy]
     respond_to :json

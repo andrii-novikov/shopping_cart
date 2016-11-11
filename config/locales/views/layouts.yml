@@ -1,0 +1,7 @@
+en:
+  layouts:
+    shopping_cart:
+      orders_text:
+        text: 'Orders'
+      cart_text:
+        text: 'Cart'

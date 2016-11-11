@@ -1,0 +1,10 @@
+.container
+  .text-center
+    %h1 Home#index
+
+  %ul.products
+    -@products.each do |p|
+      %li
+        = p.title
+        \- $#{p.price}
+        =add_to_cart_btn p

@@ -1,0 +1,27 @@
+/*
+ *= require_self
+ *= require shopping_cart/carts
+ *= require shopping_cart/checkout
+ *= require shopping_cart/common
+ *= require shopping_cart/order
+ */
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+body {
+  padding: 0px 0 30px;
+}
+
+.centered {
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+
+  align-items: center;
+  justify-content: center;
+}

@@ -1,0 +1,21 @@
+.text-center
+  %h1 Checkout
+.col-sm-8.checkout
+  =shopping_cart_errors
+  %ul.nav.nav-tabs{role:"tablist"}
+    =tab_header 'address', t('.tab_address'), true, true
+    =tab_header 'delivery', t('.tab_delivery'), false
+    =tab_header 'payment', t('.tab_payment'), false
+    =tab_header 'confirm', t('.tab_confirm'), false
+  %div.tab-content
+    =tab_content('address', true) do
+      =render 'address'
+    =tab_content 'delivery' do
+      = render 'delivery'
+    =tab_content 'payment' do
+      = render 'payment'
+    =tab_content 'confirm'
+.col-sm-4
+  %h3.text-center= t('.summary')
+  .order-summary
+    =render 'summary', order: @order

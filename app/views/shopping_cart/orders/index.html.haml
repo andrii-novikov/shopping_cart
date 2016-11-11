@@ -1,0 +1,46 @@
+%h2= t '.title'
+-unless current_order.empty?
+  .col-md-12.current-order
+    %table.table.books.text-left
+      %caption= t '.current_order'
+      %thead
+        %tr
+          %th
+          %th= t '.product'
+          %th= t '.price'
+          %th= t '.quantity'
+          %th= t '.total'
+          %th
+      %tbody
+        -current_order.order_items.each do |item|
+          %tr[item]
+            %td
+              -#=link_to [main_app, item.product] do
+              -#  =image_tag item.product.image, height: '80px', width: '80px', class:'img-thumbnail'
+            %td
+              =link_to [main_app, item.product] do
+                =item.product.title
+            %td
+              $#{item.cost}
+            %td.count
+              =item.count
+            %td.total
+              $#{item.total}
+        %tr
+          %td
+            =link_to t('to_cart'), cart_path, class: 'btn btn-success to-cart'
+          %td.text-right{colspan:3}
+          %td{colspan:2}
+            %b.cart-total
+              $#{current_order.total}
+-[:awaiting_shipment, :shipped, :completed, :cancelled].each_with_index do |status,i|
+  -unless @orders.send(status).empty?
+    .orders-by-status.col-md-6
+      %table.table
+        %caption= status.to_s.humanize
+        %tr
+          %th number
+          %th complited at
+          %th total
+          %th
+        =render partial: 'shopping_cart/orders/order', collection: @orders.send(status)

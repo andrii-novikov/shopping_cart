@@ -1,3 +1,8 @@
 Rails.application.routes.draw do
-  mount ShoppingCart::Engine => "/shopping_cart"
+  root 'home#index'
+  resources :products
+
+  devise_for :users
+  mount ShoppingCart::Engine => "/cart", as: 'shopping_cart'
+  get 'home/index'
 end

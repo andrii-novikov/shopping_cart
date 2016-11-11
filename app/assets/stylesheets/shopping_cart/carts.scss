@@ -1,0 +1,45 @@
+.cart-btn-container {
+  margin-left: 15px;
+  display: inline-block;
+
+  .add-to-cart {
+    width: 100px;
+    display: inline-block;
+  }
+
+}
+
+.shopping_cart_order_item {
+  .count {
+    width: 5em;
+  }
+  .title {
+    min-width: 15em;
+  }
+  .actions {
+    width: 6em;
+  }
+}
+
+table.books {
+  tr {
+    td:nth-child(4) {
+      width: 100px;
+    }
+    td {
+      vertical-align: middle;
+    }
+  }
+}
+
+.coupon {
+  display: inline-block;
+  vertical-align: middle;
+
+  input.form-control {width:11em;}
+}
+
+.submit {
+  display: inline-block;
+  vertical-align: middle;
+}

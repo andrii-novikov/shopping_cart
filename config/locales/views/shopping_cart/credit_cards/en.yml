@@ -1,0 +1,6 @@
+en:
+  shopping_cart:
+    credit_cards:
+      view:
+        number: 'Number:'
+        date: 'Expiration date:'

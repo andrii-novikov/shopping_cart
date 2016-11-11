@@ -1,0 +1,5 @@
+en:
+  shopping_cart:
+    time:
+      formats:
+        short: '%Y-%M-%d %H:%M'

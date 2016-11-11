@@ -1,0 +1,10 @@
+en:
+  activerecord:
+    errors:
+      models:
+        shopping_cart/address:
+            attributes:
+              phone:
+                invalid: 'must have next format: +380991234567'
+              zip:
+                invalid: 'must have next format: 12345'

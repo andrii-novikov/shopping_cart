@@ -1,0 +1,5 @@
+%tr
+  %td= order.id
+  %td= order.completed_at || '---'
+  %td $#{order.total}
+  %td= link_to icon('wrench'), order

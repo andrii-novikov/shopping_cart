@@ -1,0 +1,27 @@
+.container.cart-content.text-center
+  -if @order.order_items.empty?
+    %h2= t '.empty'
+  -else
+    %table.table.books.text-left
+      %thead
+        %tr
+          %th
+          %th= t '.book'
+          %th= t '.price'
+          %th= t '.quantity'
+          %th= t '.total'
+          %th
+      %tbody
+        -@order.order_items.each do |item|
+          =render 'shopping_cart/carts/cart_row', item:item
+        %tr
+          %td.text-right{colspan:4}
+            -if ShoppingCart.order_has_coupon
+              =render 'shopping_cart/coupons/form', coupon: @order.coupon
+          %td{colspan:2}
+            %b.cart-total
+              $#{@order.total}
+        %tr
+          %td.text-right{colspan:5}
+          %td
+            =link_to t('.make-order'), shopping_cart.checkout_path, class: 'btn btn-success'

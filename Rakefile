@@ -19,6 +19,7 @@ load 'rails/tasks/engine.rake'
 
 
 load 'rails/tasks/statistics.rake'
+load 'lib/tasks/shopping_cart_tasks.rake'
 
 
 
